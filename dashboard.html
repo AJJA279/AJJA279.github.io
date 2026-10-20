@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIGECOM - Panel General</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- BARRA LATERAL (SIDEBAR) -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <div class="brand-icon">
+            <i class="fa-solid fa-mountain"></i>
+          </div>
+          <span class="brand-title">SIGECOM</span>
+        </div>
+
+        <div class="nav-section">
+          <span class="nav-category">ESPACIO DE TRABAJO</span>
+          <nav class="nav-menu">
+            <a href="#" class="nav-item active" data-section="inicio">
+              <i class="fa-solid fa-table-cells-large"></i> Inicio
+            </a>
+            <a href="#" class="nav-item" data-section="clientes">
+              <i class="fa-solid fa-users"></i> Panel de Clientes
+            </a>
+            <a href="#" class="nav-item" data-section="proveedores">
+              <i class="fa-solid fa-truck-field"></i> Panel de Proveedores
+            </a>
+            <a href="#" class="nav-item" data-section="productos">
+              <i class="fa-solid fa-box"></i> Productos
+            </a>
+            <a href="#" class="nav-item" data-section="compras">
+              <i class="fa-solid fa-cart-shopping"></i> Compras
+            </a>
+            <a href="#" class="nav-item" data-section="ventas">
+              <i class="fa-solid fa-chart-line"></i> Ventas
+            </a>
+            <a href="#" class="nav-item" data-section="movimientos">
+              <i class="fa-solid fa-right-left"></i> Movimientos
+            </a>
+            <a href="#" class="nav-item" data-section="reportes">
+              <i class="fa-solid fa-chart-pie"></i> Reportes
+            </a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="plan-card">
+          <div class="plan-icon">
+            <i class="fa-solid fa-scale-balanced"></i>
+          </div>
+          <div class="plan-info">
+            <h4>Plan gratuito</h4>
+            <p>Todas las funciones esenciales para comenzar.</p>
+          </div>
+        </div>
+
+        <div class="plan-card premium-card">
+          <div class="plan-icon premium-icon">
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div class="plan-info">
+            <h4>Plan premium</h4>
+            <p>Almacenamiento ilimitado en el sistema.</p>
+          </div>
+        </div>
+
+        <button id="btn-logout" class="logout-btn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesión
+        </button>
+      </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+      
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Buscar movimientos o SKU...">
+        </div>
+
+        <div class="user-profile-area">
+          <div class="notifications-wrapper">
+            <button id="btn-notifications" class="notification-btn" type="button">
+              <i class="fa-regular fa-bell"></i>
+              <span class="notification-badge-dot"></span>
+            </button>
+
+            <!-- Popover de Alertas -->
+            <div id="alerts-popover" class="alerts-popover" style="display: none;">
+              <div class="alerts-header">
+                <div>
+                  <h3 class="alerts-title">Alertas</h3>
+                  <span class="alerts-subtitle">3 notificaciones importantes</span>
+                </div>
+                <button id="btn-minimize-alerts" class="minimize-btn" title="Minimizar">
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+              </div>
+
+              <div class="alerts-list">
+                <div class="alert-item alert-warning">
+                  <div class="alert-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                  <div class="alert-content">
+                    <span class="alert-item-title">Stock por agotarse</span>
+                    <p class="alert-item-desc">3 productos están por debajo del mínimo.</p>
+                  </div>
+                </div>
+
+                <div class="alert-item alert-danger">
+                  <div class="alert-icon"><i class="fa-regular fa-clock"></i></div>
+                  <div class="alert-content">
+                    <span class="alert-item-title">Cobro pendiente</span>
+                    <p class="alert-item-desc">Una venta vence hoy a las 18:00.</p>
+                  </div>
+                </div>
+
+                <div class="alert-item alert-info">
+                  <div class="alert-icon"><i class="fa-solid fa-chart-column"></i></div>
+                  <div class="alert-content">
+                    <span class="alert-item-title">Resumen semanal listo</span>
+                    <p class="alert-item-desc">Tu reporte de actividad ya está disponible.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="user-pill">
+            <div id="user-avatar" class="user-avatar">US</div>
+            <div class="user-meta">
+              <span id="display-username" class="user-name">Usuario</span>
+              <span class="user-role">Administrador</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- SECCIÓN DINÁMICA DE CONTENIDO -->
+      <section class="dashboard-body">
+        <div class="content-header">
+          <div>
+            <span class="section-tag" id="view-tag">Panel comercial</span>
+            <h1 id="view-title">Inicio</h1>
+            <p id="view-desc">Consulta el rendimiento de tu negocio en tiempo real.</p>
+          </div>
+          <button id="btn-open-modal" class="btn-primary">
+            <i class="fa-solid fa-plus"></i> Nuevo movimiento
+          </button>
+        </div>
+
+        <!-- CONTENEDOR VISTA: INICIO -->
+        <div id="view-container-inicio" class="view-content">
+          <div class="balance-card">
+            <div class="balance-card-header">
+              <h3>Balance del mes</h3>
+              <button class="card-icon-btn"><i class="fa-solid fa-chart-column"></i></button>
+            </div>
+
+            <div class="profit-section">
+              <span class="profit-label">Ganancia estimada</span>
+              <h2 class="profit-value">$ 10.340</h2>
+            </div>
+
+            <div class="progress-stats">
+              <div class="stat-row">
+                <div class="stat-info">
+                  <span>Ingresos</span>
+                  <span class="stat-num">$ 13.680</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill fill-income" style="width: 75%;"></div>
+                </div>
+              </div>
+
+              <div class="stat-row">
+                <div class="stat-info">
+                  <span>Egresos</span>
+                  <span class="stat-num">$ 3.340</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill fill-expense" style="width: 30%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="balance-footer-alert">
+              <p>Tu balance creció un 18,1% respecto al período anterior.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTENEDOR GENÉRICO PARA TABLAS -->
+        <div id="view-container-generic" class="view-content" style="display: none;">
+          <div class="table-card">
+            <div class="table-header">
+              <h3 id="table-title">Registros</h3>
+              <span class="record-count" id="record-count">0 registros guardados</span>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr id="table-head-row">
+                    <!-- Dinámico por JS -->
+                  </tr>
+                </thead>
+                <tbody id="table-body">
+                  <!-- Dinámico por JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- MODAL: NUEVO MOVIMIENTO -->
+  <div id="modal-overlay" class="modal-overlay" style="display: none;">
+    <div class="modal-card modal-large">
+      <div class="modal-header">
+        <div>
+          <span class="modal-subtitle">Registro</span>
+          <h2 class="modal-title">Nuevo movimiento</h2>
+        </div>
+        <button id="btn-close-modal" class="modal-close-btn">&times;</button>
+      </div>
+
+      <form id="movement-form">
+        <!-- Selector de Pestañas -->
+        <div class="form-group">
+          <label class="input-label">Tipo de registro</label>
+          <div class="movement-type-tabs">
+            <button type="button" class="type-btn active" data-type="Cliente">Cliente</button>
+            <button type="button" class="type-btn" data-type="Proveedor">Proveedor</button>
+            <button type="button" class="type-btn" data-type="Producto">Producto</button>
+            <button type="button" class="type-btn" data-type="Compra">Compra</button>
+            <button type="button" class="type-btn" data-type="Venta">Venta</button>
+            <button type="button" class="type-btn" data-type="Reporte">Reporte</button>
+          </div>
+        </div>
+
+        <!-- FORMULARIO CLIENTE -->
+        <div id="form-fields-cliente" class="dynamic-form-section">
+          <div class="form-group">
+            <label class="input-label">Nombre del cliente *</label>
+            <input type="text" id="cli-nombre" class="modal-input" placeholder="Ej. María González / Modas Sur" required>
+          </div>
+          <div class="form-group">
+            <label class="input-label">Tipo de cliente *</label>
+            <select id="cli-tipo" class="modal-input" required>
+              <option value="Consumidor final">Consumidor final</option>
+              <option value="Comercio mayorista">Comercio mayorista</option>
+              <option value="Empresa">Empresa</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label class="input-label">Teléfono (para envíos)</label>
+              <input type="tel" id="cli-telefono" class="modal-input" placeholder="Ej. +54 381 123456">
+            </div>
+            <div class="form-group flex-1">
+              <label class="input-label">Dirección (para envíos)</label>
+              <input type="text" id="cli-direccion" class="modal-input" placeholder="Ej. Av. San Martín 450">
+            </div>
+          </div>
+        </div>
+
+        <!-- FORMULARIO PROVEEDOR -->
+        <div id="form-fields-proveedor" class="dynamic-form-section" style="display: none;">
+          <div class="form-group">
+            <label class="input-label">Nombre / Razón social *</label>
+            <input type="text" id="prov-nombre" class="modal-input" placeholder="Ej. Distribuidora Textil S.A.">
+          </div>
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label class="input-label">Rubro / Insumo</label>
+              <input type="text" id="prov-rubro" class="modal-input" placeholder="Ej. Telas de algodón, hilos">
+            </div>
+            <div class="form-group flex-1">
+              <label class="input-label">Teléfono de contacto</label>
+              <input type="tel" id="prov-telefono" class="modal-input" placeholder="Ej. +54 11 98765432">
+            </div>
+          </div>
+        </div>
+
+        <!-- FORMULARIO PRODUCTO -->
+        <div id="form-fields-producto" class="dynamic-form-section" style="display: none;">
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label class="input-label">Nombre del Producto *</label>
+              <input type="text" id="prod-nombre" class="modal-input" placeholder="Ej. Remera Algodón Estampada">
+            </div>
+            <div class="form-group flex-1">
+              <label class="input-label">Código SKU *</label>
+              <input type="text" id="prod-sku" class="modal-input" placeholder="Ej. REM-ALG-001">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label class="input-label">Categoría</label>
+              <input type="text" id="prod-categoria" class="modal-input" placeholder="Textil, Alimento, Utilería, etc.">
+            </div>
+            <div class="form-group flex-1">
+              <label class="input-label">Fecha de vencimiento</label>
+              <input type="date" id="prod-vencimiento" class="modal-input">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="input-label">Tipo de movimiento</label>
+            <select id="prod-movimiento" class="modal-input">
+              <option value="Nuevo ingreso">Nuevo ingreso</option>
+              <option value="Reposición de stock">Reposición de stock</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="input-label">Precio de compra TOTAL ($)</label>
+            <input type="number" id="prod-precio-compra-total" class="modal-input" placeholder="Monto total de todas las unidades compradas" step="0.01">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label class="input-label">Precio de compra POR UNIDAD ($)</label>
+              <input type="number" id="prod-precio-compra-unidad" class="modal-input" placeholder="0.00" step="0.01">
+            </div>
+            <div class="form-group flex-1">
+              <label class="input-label">Precio de venta POR UNIDAD ($)</label>
+              <input type="number" id="prod-precio-venta-unidad" class="modal-input" placeholder="0.00" step="0.01">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label class="input-label">Stock ingresado</label>
+              <input type="number" id="prod-stock" class="modal-input" placeholder="0" min="0">
+            </div>
+            <div class="form-group flex-1">
+              <label class="input-label">Stock mínimo de alerta</label>
+              <input type="number" id="prod-stock-minimo" class="modal-input" placeholder="0" min="0">
+            </div>
+          </div>
+        </div>
+
+        <!-- FORMULARIO GENÉRICO (Compras, Ventas, Reportes) -->
+        <div id="form-fields-generico" class="dynamic-form-section" style="display: none;">
+          <div class="form-group">
+            <label id="lbl-generico" class="input-label">Descripción</label>
+            <input type="text" id="input-generico-detalle" class="modal-input" placeholder="Detalle del movimiento">
+          </div>
+          <div class="form-group" id="group-generico-monto">
+            <label class="input-label">Monto ($)</label>
+            <input type="number" id="input-generico-monto" class="modal-input" placeholder="0.00" step="0.01">
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="btn-cancel-modal" class="btn-secondary">Cancelar</button>
+          <button type="submit" class="btn-submit-modal">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

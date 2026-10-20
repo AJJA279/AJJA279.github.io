@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIGECOM - Gestión Comercial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="login-container">
+    
+    <!-- LADO IZQUIERDO: Branding & Resumen -->
+    <section class="left-panel">
+      <div class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-mountain"></i>
+        </div>
+        <span class="brand-title">SIGECOM</span>
+      </div>
+
+      <div class="hero-content">
+        <div class="badge">GESTIÓN SIMPLE, DECISIONES INTELIGENTES</div>
+        <h1 class="hero-title">Tu negocio, bajo control desde un solo lugar.</h1>
+        <p class="hero-description">
+          Registra compras, organiza ventas y consulta la información clave de tu empresa de forma simple y gratuita.
+        </p>
+
+        <div class="preview-card">
+          <div class="card-header">
+            <div>
+              <span class="card-subtitle">Resumen mensual</span>
+              <h3 class="card-title">Movimiento comercial</h3>
+            </div>
+            <span class="badge-percentage">+12,5%</span>
+          </div>
+
+          <div class="metrics-grid">
+            <div class="metric-box">
+              <div class="metric-icon icon-up">
+                <i class="fa-solid fa-arrow-up"></i>
+              </div>
+              <span class="metric-label">Ventas</span>
+              <span class="metric-value">$ 24.580</span>
+            </div>
+
+            <div class="metric-box">
+              <div class="metric-icon icon-down">
+                <i class="fa-solid fa-arrow-down"></i>
+              </div>
+              <span class="metric-label">Compras</span>
+              <span class="metric-value">$ 9.320</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="left-footer">
+        Hecho para emprendedores de todos los rubros.
+      </footer>
+    </section>
+
+    <!-- LADO DERECHO: Formulario Dinámico -->
+    <section class="right-panel">
+      <div class="form-wrapper">
+        <span id="auth-subheading" class="subheading">BIENVENIDO DE NUEVO</span>
+        <h2 id="auth-title" class="form-title">Inicia sesión</h2>
+        <p id="auth-description" class="form-description">Ingresa tus datos para acceder a tu espacio de trabajo.</p>
+
+        <!-- Toggle Tabs -->
+        <div class="tab-switcher">
+          <button id="btn-tab-login" class="tab-btn active" type="button">Iniciar sesión</button>
+          <button id="btn-tab-register" class="tab-btn" type="button">Registrarme</button>
+        </div>
+
+        <!-- Botón Google -->
+        <button class="btn-google" type="button">
+          <svg class="google-icon" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+          </svg>
+          Continuar con Google
+        </button>
+
+        <div class="divider">
+          <span>O CON TU CORREO</span>
+        </div>
+
+        <!-- Formulario principal -->
+        <form id="auth-form" class="login-form">
+
+          <!-- Campo Nombre de usuario -->
+          <div class="input-group" id="group-username">
+            <div class="label-wrapper">
+              <label for="username">Nombre de usuario</label>
+              <span id="username-counter" class="char-counter">0/20</span>
+            </div>
+            <div class="input-wrapper">
+              <i class="fa-regular fa-user input-icon"></i>
+              <input type="text" id="username" placeholder="Ej. MiEmpresa2026" maxlength="20" required autocomplete="off">
+            </div>
+            <span id="username-helper" class="helper-text">Solo letras y números, sin espacios.</span>
+          </div>
+
+          <!-- Campo Correo -->
+          <div class="input-group">
+            <label for="email">Correo de Gmail</label>
+            <div class="input-wrapper">
+              <i class="fa-regular fa-envelope input-icon"></i>
+              <input type="email" id="email" placeholder="tunombre@gmail.com" required>
+            </div>
+          </div>
+
+          <!-- Campo Contraseña -->
+          <div class="input-group">
+            <div class="label-wrapper">
+              <label for="password">Contraseña</label>
+              <a href="#" id="forgot-link" class="forgot-link">¿La olvidaste?</a>
+            </div>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-lock input-icon"></i>
+              <input type="password" id="password" placeholder="Mínimo 8 caracteres" required minlength="8">
+              <i class="fa-regular fa-eye toggle-password" id="toggle-pwd"></i>
+            </div>
+            <span id="pwd-helper" class="helper-text" style="display: none;">Usa 8 caracteres o más para mayor seguridad.</span>
+          </div>
+
+          <!-- Campo Confirmar Contraseña (Solo Registro) -->
+          <div class="input-group" id="group-confirm-password" style="display: none;">
+            <label for="confirm-password">Confirmar contraseña</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-lock input-icon"></i>
+              <input type="password" id="confirm-password" placeholder="Repite tu contraseña">
+            </div>
+          </div>
+
+          <!-- Checkbox dinámico -->
+          <div class="checkbox-group">
+            <input type="checkbox" id="terms-checkbox">
+            <label for="terms-checkbox" id="terms-label">Mantener mi sesión iniciada</label>
+          </div>
+
+          <button type="submit" id="btn-submit" class="btn-submit">Ingresar a SIGECOM</button>
+        </form>
+
+        <footer class="right-footer">
+          © 2026 SIGECOM · Gestión comercial para todos
+        </footer>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
