@@ -1,4 +1,4 @@
-// Referencias al DOM
+// Referencias al DO
 const btnTabLogin = document.getElementById('btn-tab-login');
 const btnTabRegister = document.getElementById('btn-tab-register');
 
